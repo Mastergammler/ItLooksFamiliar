@@ -11,6 +11,7 @@ public class InventoryUI : MonoBehaviour
     //todo: fix direct player access
     public GameObject Player;
     // Start is called before the first frame update
+    private IInventory mInv;
     void Start()
     {
         mChildImages = new Image[8];
@@ -19,16 +20,26 @@ public class InventoryUI : MonoBehaviour
             mChildImages[i] = transform.GetChild(i).GetChild(0).GetComponent<Image>();
         }
 
-        IInventory inv = Player.GetComponent<IInventory>();
-        inv.OnInventoryChanged += UpdateInventoryUI;
+        mInv = Player.GetComponent<IInventory>();
+        mInv.OnInventoryChanged += UpdateInventoryUI;
+    }
+
+    public void RemoveItemFromSlot(int slotNo)
+    {
+        mInv.RemoveItem(slotNo);
     }
 
     private void UpdateInventoryUI(object sender, InventoryObject e)
     {
-        mChildImages[e.SlotNo].sprite = e.Item.Image;
-        if(mChildImages[e.SlotNo] != null)
-            mChildImages[e.SlotNo].color = new Color(1,1,1,1);
-        else
+        if(e.Item == null)
+        {
+            mChildImages[e.SlotNo].sprite = null;
             mChildImages[e.SlotNo].color = new Color(0,0,0,0);
+        }
+        else
+        {
+            mChildImages[e.SlotNo].sprite = e.Item.Image;
+            mChildImages[e.SlotNo].color = new Color(1,1,1,1);
+        }
     }
 }

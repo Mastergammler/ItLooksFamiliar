@@ -10,6 +10,8 @@ public class NonStackableInventory : MonoBehaviour, IInventory
     private Dictionary<int,CollectableSO> mInventory = new Dictionary<int, CollectableSO>();
 
     public event EventHandler<InventoryObject> OnInventoryChanged;
+    [SerializeField]
+    private GameObject ItemPrefab;
 
     //#################
     //##  INTERFACE  ##
@@ -60,6 +62,22 @@ public class NonStackableInventory : MonoBehaviour, IInventory
                     break;
                 }
             }
+            mInventory.Remove(slotNo);
+            OnInventoryChanged.Invoke(this,new InventoryObject(slotNo));
+        }
+    }
+
+    public void RemoveItem(int slotNo)
+    {
+        if(mInventory.ContainsKey(slotNo))
+        {
+            CollectableSO coll = null;
+            mInventory.TryGetValue(slotNo,out coll);
+            Collectable script = ItemPrefab.GetComponent<Collectable>();
+            script.ItemDef = coll;
+            float val = UnityEngine.Random.Range(-2.0f,2.0f);
+            Vector3 v3 = new Vector3(val,1,0);
+            Instantiate(ItemPrefab,transform.position + v3,Quaternion.identity);
             mInventory.Remove(slotNo);
             OnInventoryChanged.Invoke(this,new InventoryObject(slotNo));
         }

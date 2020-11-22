@@ -6,6 +6,7 @@ public interface IInventory
     event EventHandler<InventoryObject> OnInventoryChanged;
     bool AddItem(CollectableSO item); 
     void RemoveItem(CollectableSO item);
+    void RemoveItem(int slotNo);
     CollectableSO GetItemInSlot(int slotNo);
 }
 
