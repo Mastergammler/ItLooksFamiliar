@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ public class NonStackableInventory : MonoBehaviour, IInventory
     [SerializeField]
     private int IventorySlots = 8;
     private Dictionary<int,CollectableSO> mInventory = new Dictionary<int, CollectableSO>();
-    
+
+    public event EventHandler<InventoryObject> OnInventoryChanged;
 
     //#################
     //##  INTERFACE  ##
@@ -19,6 +21,7 @@ public class NonStackableInventory : MonoBehaviour, IInventory
         if( nextSlot != -1)
         {
             mInventory.Add(nextSlot,item);
+            OnInventoryChanged.Invoke(this,new InventoryObject(nextSlot,item));
             return true;
         }
         return false;
@@ -58,6 +61,7 @@ public class NonStackableInventory : MonoBehaviour, IInventory
                 }
             }
             mInventory.Remove(slotNo);
+            OnInventoryChanged.Invoke(this,new InventoryObject(slotNo));
         }
     }
 }
