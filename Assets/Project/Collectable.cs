@@ -11,16 +11,9 @@ public class Collectable : MonoBehaviour, ICollectable
 
     public CollectableSO OnCollect()
     {
-        StartCoroutine(DestroyObject());
         return ItemDef;
     }
 
-    private IEnumerator DestroyObject()
-    {
-        yield return new WaitForSeconds(.1f);
-        Destroy(gameObject);
-        yield return null;
-    }
     // Start is called before the first frame update
     void Start()
     {

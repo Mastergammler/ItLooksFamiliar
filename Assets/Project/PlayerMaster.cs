@@ -8,10 +8,12 @@ public class PlayerMaster : MonoBehaviour
 
 
     private IMoveable mMovement;
+    private IInventory mInventory;
     // Start is called before the first frame update
     void Start()
     {
        mMovement = GetComponent<IMoveable>(); 
+       mInventory = GetComponent<IInventory>();
     }
 
     // Update is called once per frame
@@ -34,9 +36,9 @@ public class PlayerMaster : MonoBehaviour
         if(col != null)
         {
             CollectableSO so = col.OnCollect();
-            Debug.Log("Collected Item: " + so.Name);
+            if(mInventory.AddItem(so))
+                Destroy(other.gameObject);
         }
-        
     }
 
 }
