@@ -23,4 +23,12 @@ public class ItemTooltip : TooltipTrigger
             base.OnPointerEnter(eventData);
         }
     }
+
+    public override void OnPointerExit(PointerEventData eventData)
+    {
+        if(mObjectValues != null)
+        {
+            base.OnPointerExit(eventData);
+        }
+    }
 }
