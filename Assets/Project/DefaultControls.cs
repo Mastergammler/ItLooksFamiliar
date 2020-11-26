@@ -27,9 +27,17 @@ public class @DefaultControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""50acbec2-dabd-4380-8ab2-d80cd8c64201"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Ship"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab04ada4-1545-482b-ab29-7f9007115195"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -94,11 +102,33 @@ public class @DefaultControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ee6163ac-63e2-4ab9-b26d-cd44f880d234"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6fca436-9764-4788-b729-f5efca454033"",
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61e9cfbd-f651-47b8-bb96-ea6c2419f903"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ship"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -110,7 +140,8 @@ public class @DefaultControls : IInputActionCollection, IDisposable
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
-        m_Keyboard_Newaction = m_Keyboard.FindAction("New action", throwIfNotFound: true);
+        m_Keyboard_Inventory = m_Keyboard.FindAction("Inventory", throwIfNotFound: true);
+        m_Keyboard_Ship = m_Keyboard.FindAction("Ship", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,13 +192,15 @@ public class @DefaultControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Keyboard;
     private IKeyboardActions m_KeyboardActionsCallbackInterface;
     private readonly InputAction m_Keyboard_Movement;
-    private readonly InputAction m_Keyboard_Newaction;
+    private readonly InputAction m_Keyboard_Inventory;
+    private readonly InputAction m_Keyboard_Ship;
     public struct KeyboardActions
     {
         private @DefaultControls m_Wrapper;
         public KeyboardActions(@DefaultControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
-        public InputAction @Newaction => m_Wrapper.m_Keyboard_Newaction;
+        public InputAction @Inventory => m_Wrapper.m_Keyboard_Inventory;
+        public InputAction @Ship => m_Wrapper.m_Keyboard_Ship;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,9 +213,12 @@ public class @DefaultControls : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnMovement;
-                @Newaction.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnNewaction;
+                @Inventory.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnInventory;
+                @Ship.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnShip;
+                @Ship.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnShip;
+                @Ship.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnShip;
             }
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
@@ -190,9 +226,12 @@ public class @DefaultControls : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+                @Ship.started += instance.OnShip;
+                @Ship.performed += instance.OnShip;
+                @Ship.canceled += instance.OnShip;
             }
         }
     }
@@ -200,6 +239,7 @@ public class @DefaultControls : IInputActionCollection, IDisposable
     public interface IKeyboardActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
+        void OnShip(InputAction.CallbackContext context);
     }
 }

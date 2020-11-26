@@ -14,9 +14,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "New action",
+                    "name": "Inventory",
                     "type": "Button",
                     "id": "50acbec2-dabd-4380-8ab2-d80cd8c64201",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Ship",
+                    "type": "Button",
+                    "id": "ab04ada4-1545-482b-ab29-7f9007115195",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -81,11 +89,33 @@
                 {
                     "name": "",
                     "id": "ee6163ac-63e2-4ab9-b26d-cd44f880d234",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6fca436-9764-4788-b729-f5efca454033",
                     "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61e9cfbd-f651-47b8-bb96-ea6c2419f903",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ship",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

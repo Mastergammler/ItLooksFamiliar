@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 85422939}
   - component: {fileID: 85422938}
   m_Layer: 0
-  m_Name: Metal (1)
+  m_Name: Ice Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e967e31bd7847a085e51a9136ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDef: {fileID: 11400000, guid: 54c86150e88a1644fb0d3fcbd0101ba2, type: 2}
+  ItemDef: {fileID: 11400000, guid: e1f08d4755ec2584e81e1b63f0f6d4c8, type: 2}
 --- !u!212 &85422940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2110,7 +2110,7 @@ GameObject:
   - component: {fileID: 986610878}
   - component: {fileID: 986610877}
   m_Layer: 0
-  m_Name: Slime (1)
+  m_Name: Ice Shard 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e967e31bd7847a085e51a9136ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDef: {fileID: 11400000, guid: 2d57f5da10e108646bb049e7dcc595be, type: 2}
+  ItemDef: {fileID: 11400000, guid: e1f08d4755ec2584e81e1b63f0f6d4c8, type: 2}
 --- !u!212 &986610879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2223,7 +2223,7 @@ GameObject:
   - component: {fileID: 1062460470}
   - component: {fileID: 1062460469}
   m_Layer: 0
-  m_Name: Slime (2)
+  m_Name: Copper Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e967e31bd7847a085e51a9136ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDef: {fileID: 11400000, guid: 2d57f5da10e108646bb049e7dcc595be, type: 2}
+  ItemDef: {fileID: 11400000, guid: f8609de08c7fa754f82f256f84324373, type: 2}
 --- !u!212 &1062460471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2992,7 +2992,7 @@ GameObject:
   - component: {fileID: 1247109839}
   - component: {fileID: 1247109842}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Copper Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e967e31bd7847a085e51a9136ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDef: {fileID: 11400000, guid: 2d57f5da10e108646bb049e7dcc595be, type: 2}
+  ItemDef: {fileID: 11400000, guid: f8609de08c7fa754f82f256f84324373, type: 2}
 --- !u!212 &1247109840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3105,7 +3105,7 @@ GameObject:
   - component: {fileID: 1284001312}
   - component: {fileID: 1284001311}
   m_Layer: 0
-  m_Name: Stone (1)
+  m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,7 +3139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e967e31bd7847a085e51a9136ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDef: {fileID: 11400000, guid: 330e6dd7690167144bac1cbd3fa3dca8, type: 2}
+  ItemDef: {fileID: 11400000, guid: 9a08eb330a615fc4580ded9f4376b830, type: 2}
 --- !u!212 &1284001313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8079,6 +8079,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipHeader: 
   TooltipContent: 
+--- !u!1 &1650673483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650673486}
+  - component: {fileID: 1650673485}
+  - component: {fileID: 1650673484}
+  m_Layer: 0
+  m_Name: GameSystems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1650673484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650673483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a072e4a35b69744add07caf5a126da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryUI: {fileID: 1923953412}
+  ShipUI: {fileID: 432135371}
+--- !u!114 &1650673485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650673483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d750b2e6e8e248f42baf2552e1162ad8, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51540e40-76bc-42b9-8661-1fbe1a3b4e43
+    m_ActionName: Keyboard/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1650673484}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ToggleInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 50acbec2-dabd-4380-8ab2-d80cd8c64201
+    m_ActionName: Keyboard/Inventory[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1650673484}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ToggleRepairConsole
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ab04ada4-1545-482b-ab29-7f9007115195
+    m_ActionName: Keyboard/Ship[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Keyboard
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &1650673486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650673483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.96317786, y: -0.75936586, z: -2.162625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678345014
 GameObject:
   m_ObjectHideFlags: 0
@@ -10345,6 +10457,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2928361048461713628, guid: 51871cf724ffb7147a0ef2e29fb8ee40, type: 3}
+      propertyPath: ItemDef
+      value: 
+      objectReference: {fileID: 11400000, guid: 330e6dd7690167144bac1cbd3fa3dca8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51871cf724ffb7147a0ef2e29fb8ee40, type: 3}
 --- !u!4 &2928361049081806157 stripped
@@ -10446,6 +10562,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 50acbec2-dabd-4380-8ab2-d80cd8c64201
     m_ActionName: Keyboard/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab04ada4-1545-482b-ab29-7f9007115195
+    m_ActionName: Keyboard/Ship[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Keyboard
