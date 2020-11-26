@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: -6143642851701081838, guid: bbfb96c1f851273418317df81c83a180, type: 3}
   Name: Slime
-  Description: 
+  Description: Some goui mass that looks sticky
   Stability: 0
   Conductivity: 0
