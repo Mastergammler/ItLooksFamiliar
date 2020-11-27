@@ -15,5 +15,8 @@ MonoBehaviour:
   Image: {fileID: -5815448413037008789, guid: 2199dd6ddae5853428aa76e9354d2a84, type: 3}
   Name: Ice shard
   Description: Shard of ice, it's slowly melting
-  Stability: 0
-  Conductivity: 0
+  ThermalConductivity: 8
+  IsolationValue: 0
+  PressureResistance: 0
+  ElectricalConductivity: 0
+  VibrationValue: 0

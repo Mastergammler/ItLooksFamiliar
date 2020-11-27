@@ -15,5 +15,8 @@ MonoBehaviour:
   Image: {fileID: -4354374103620902118, guid: bcaab7b43150d7f4a923db74ec0a09a7, type: 3}
   Name: Metal
   Description: 'Some piece of metal. '
-  Stability: 0
-  Conductivity: 0
+  ThermalConductivity: 4
+  IsolationValue: 0
+  PressureResistance: 0
+  ElectricalConductivity: 6
+  VibrationValue: 9

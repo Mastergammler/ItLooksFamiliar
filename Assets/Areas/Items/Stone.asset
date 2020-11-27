@@ -15,5 +15,8 @@ MonoBehaviour:
   Image: {fileID: 1661101348417805765, guid: 30be9dd58df97364d8e8461c46a7a87d, type: 3}
   Name: Rock
   Description: A rock of the surface, looks pretty stable
-  Stability: 0
-  Conductivity: 0
+  ThermalConductivity: 0
+  IsolationValue: 8
+  PressureResistance: 2
+  ElectricalConductivity: 0
+  VibrationValue: 0

@@ -10,6 +10,10 @@ public class CollectableSO : ScriptableObject
     public string Name;
     [Multiline]
     public string Description;
-    public float Stability;
-    public float Conductivity;
+
+    public float ThermalConductivity;
+    public float IsolationValue;
+    public float PressureResistance;
+    public float ElectricalConductivity;
+    public float VibrationValue;
 }

@@ -15,5 +15,8 @@ MonoBehaviour:
   Image: {fileID: -4430387086899569250, guid: 5d2bec45945211f4f96bc422e356d6d2, type: 3}
   Name: Copper Wire
   Description: Copper wire, nice electrical conductivity
-  Stability: 0
-  Conductivity: 0
+  ThermalConductivity: 6
+  IsolationValue: 0
+  PressureResistance: 0
+  ElectricalConductivity: 10
+  VibrationValue: 0

@@ -15,5 +15,8 @@ MonoBehaviour:
   Image: {fileID: 6283915134025091613, guid: ec6af7108532d8a46abcc8c56595d404, type: 3}
   Name: Red Crystal
   Description: Crystal, seems to be a really hard material
-  Stability: 0
-  Conductivity: 0
+  ThermalConductivity: 5
+  IsolationValue: 0
+  PressureResistance: 10
+  ElectricalConductivity: 0
+  VibrationValue: 0
