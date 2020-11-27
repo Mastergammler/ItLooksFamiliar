@@ -5,6 +5,16 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : AnimatedGridElement 
 {
+    //###############
+    //##  MEMBERS  ##
+    //###############
+
+    protected InventoryUI mParentController;
+    
+    //#################
+    //##  INTERFACE  ##
+    //#################
+
     public override void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Right)
@@ -14,16 +24,12 @@ public class InventorySlot : AnimatedGridElement
         }
     }
 
-    private InventoryUI mParentController;
-    // Start is called before the first frame update
+    //################
+    //##    MONO    ##
+    //################
+
     void Start()
     {
         mParentController = transform.parent.GetComponent<InventoryUI>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

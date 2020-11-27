@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class NonStackableInventory : MonoBehaviour, IInventory
 {
+    //##################
+    //##    EDITOR    ##
+    //##################
+
     [SerializeField]
     private int IventorySlots = 8;
-    private Dictionary<int,CollectableSO> mInventory = new Dictionary<int, CollectableSO>();
 
-    public event EventHandler<InventoryObject> OnInventoryChanged;
     [SerializeField]
     private GameObject ItemPrefab;
+
+    //###############
+    //##  MEMBERS  ##
+    //###############
+    private Dictionary<int,CollectableSO> mInventory = new Dictionary<int, CollectableSO>();
+    public event EventHandler<InventoryObject> OnInventoryChanged;
 
     //#################
     //##  INTERFACE  ##
@@ -27,6 +35,14 @@ public class NonStackableInventory : MonoBehaviour, IInventory
             return true;
         }
         return false;
+    }
+    
+    public bool AddItem(int slotNo, CollectableSO item)
+    {
+        if(mInventory.ContainsKey(slotNo)) return false;
+        mInventory.Add(slotNo,item);
+        OnInventoryChanged.Invoke(this,new InventoryObject(slotNo,item));
+        return true; 
     }
 
     private int FindNextOpenSlot()
@@ -57,7 +73,6 @@ public class NonStackableInventory : MonoBehaviour, IInventory
             {
                 if(i.Value.Equals(item)) 
                 {
-
                     slotNo = i.Key;
                     break;
                 }
@@ -82,4 +97,5 @@ public class NonStackableInventory : MonoBehaviour, IInventory
             OnInventoryChanged.Invoke(this,new InventoryObject(slotNo));
         }
     }
+
 }

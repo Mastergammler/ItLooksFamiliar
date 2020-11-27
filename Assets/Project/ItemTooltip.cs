@@ -4,16 +4,19 @@ using MgSq.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(ICollectable))]
 public class ItemTooltip : TooltipTrigger
 {
+    //###############
+    //##  MEMBERS  ##
+    //###############
+
     private CollectableSO mObjectValues;
 
 
-    public void UpdateTooltipMessage(CollectableSO newObject)
-    {
-        mObjectValues = newObject;
-    }
+    //#################
+    //##  INTERFACE  ##
+    //#################
+
     public override void OnPointerEnter(PointerEventData eventData)
     {
         if (mObjectValues != null)
@@ -30,5 +33,14 @@ public class ItemTooltip : TooltipTrigger
         {
             base.OnPointerExit(eventData);
         }
+    }
+
+    //#################
+    //##  ACCESSORS  ##
+    //#################
+
+    public void UpdateTooltipMessage(CollectableSO newObject)
+    {
+        mObjectValues = newObject;
     }
 }

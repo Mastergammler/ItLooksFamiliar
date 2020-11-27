@@ -6,28 +6,32 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    //todo: initialize with dynamic inventory count
+    public int InventorySlots = 8; 
     private Image[] mChildImages;
     private ItemTooltip[] mTooltips;
 
     //todo: fix direct player access
-    public GameObject Player;
-    private IInventory mInv;
+    public GameObject InventoryHolder;
+    protected IInventory mInv;
     void Start()
     {
-        mChildImages = new Image[8];
-        mTooltips = new ItemTooltip[8];
-        for (int i = 0; i < 8; i++)
+        Init();
+    }
+    protected void Init()
+    {
+        mChildImages = new Image[InventorySlots];
+        mTooltips = new ItemTooltip[InventorySlots];
+        for (int i = 0; i < InventorySlots; i++)
         {
             mChildImages[i] = transform.GetChild(i).GetChild(0).GetComponent<Image>();
             mTooltips[i] = transform.GetChild(i).GetComponent<ItemTooltip>();
         }
 
-        mInv = Player.GetComponent<IInventory>();
+        mInv = InventoryHolder.GetComponent<IInventory>();
         mInv.OnInventoryChanged += UpdateInventoryUI;
     }
 
-    public void RemoveItemFromSlot(int slotNo)
+    public virtual void RemoveItemFromSlot(int slotNo)
     {
         mInv.RemoveItem(slotNo);
     }
