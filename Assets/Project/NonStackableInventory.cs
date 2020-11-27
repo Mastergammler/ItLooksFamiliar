@@ -86,13 +86,6 @@ public class NonStackableInventory : MonoBehaviour, IInventory
     {
         if(mInventory.ContainsKey(slotNo))
         {
-            CollectableSO coll = null;
-            mInventory.TryGetValue(slotNo,out coll);
-            Collectable script = ItemPrefab.GetComponent<Collectable>();
-            script.ItemDef = coll;
-            float val = UnityEngine.Random.Range(-2.0f,2.0f);
-            Vector3 v3 = new Vector3(val,1,0);
-            Instantiate(ItemPrefab,transform.position + v3,Quaternion.identity);
             mInventory.Remove(slotNo);
             OnInventoryChanged.Invoke(this,new InventoryObject(slotNo));
         }

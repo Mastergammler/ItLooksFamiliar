@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public int InventorySlots = 8; 
+    public int InventorySlots = 8;
+    public GameObject ItemPrefab;
     private Image[] mChildImages;
     private ItemTooltip[] mTooltips;
 
@@ -33,7 +34,14 @@ public class InventoryUI : MonoBehaviour
 
     public virtual void RemoveItemFromSlot(int slotNo)
     {
+        Collectable script = ItemPrefab.GetComponent<Collectable>();
+        script.ItemDef = mInv.GetItemInSlot(slotNo);
+        float val = UnityEngine.Random.Range(-2.0f, 2.0f);
+        Vector3 v3 = new Vector3(val, 1, 0);
+        Instantiate(ItemPrefab, InventoryHolder.transform.position + v3, Quaternion.identity);
+
         mInv.RemoveItem(slotNo);
+
     }
 
     private void UpdateInventoryUI(object sender, InventoryObject e)

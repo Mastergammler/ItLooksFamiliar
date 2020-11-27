@@ -17,7 +17,7 @@ public class ShipInventoryUI : InventoryUI
     public override void RemoveItemFromSlot(int slotNo)
     {
         CollectableSO item = mInv.GetItemInSlot(slotNo);
-        base.RemoveItemFromSlot(slotNo);
+        mInv.RemoveItem(slotNo);
         bool succ = mPlayerInv.AddItem(item);
     }
 

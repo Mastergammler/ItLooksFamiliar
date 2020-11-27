@@ -3465,6 +3465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventorySlots: 5
+  ItemPrefab: {fileID: 2928361048461713601, guid: 51871cf724ffb7147a0ef2e29fb8ee40, type: 3}
   InventoryHolder: {fileID: 1656894785}
   PlayerInventory: {fileID: 5983775475418299894}
 --- !u!1 &1171386881
@@ -9848,6 +9849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventorySlots: 8
+  ItemPrefab: {fileID: 2928361048461713601, guid: 51871cf724ffb7147a0ef2e29fb8ee40, type: 3}
   InventoryHolder: {fileID: 5983775475418299894}
 --- !u!1 &1950506180
 GameObject:
