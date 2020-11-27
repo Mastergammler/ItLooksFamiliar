@@ -18,15 +18,13 @@ public class ShipInventoryUI : InventoryUI
     {
         CollectableSO item = mInv.GetItemInSlot(slotNo);
         base.RemoveItemFromSlot(slotNo);
-        mPlayerInv.AddItem(item);
+        bool succ = mPlayerInv.AddItem(item);
     }
 
     public void AddItem(int targetSlotNo,int itemSlotNo)
     {
         CollectableSO item = mPlayerInv.GetItemInSlot(itemSlotNo);
-        if(item == null) Debug.Log("Item no " + itemSlotNo + " was not found in the player inventory");
         bool succ = mInv.AddItem(targetSlotNo,item);
         mPlayerInv.RemoveItem(itemSlotNo);
-        Debug.Log("Adding item to slot no " + targetSlotNo + " was " + succ);
     }
 }

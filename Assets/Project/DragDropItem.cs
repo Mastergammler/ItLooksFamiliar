@@ -42,7 +42,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(!activeItem.Invoke()) return;
+        //if(!activeItem.Invoke()) return;
         mCanvasGroup.blocksRaycasts = true;
         mTransform.anchoredPosition = mOriginalPosition;
     }
