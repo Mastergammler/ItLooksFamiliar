@@ -25,7 +25,14 @@ public class ShipInventoryUI : InventoryUI
             mInv.GetItemInSlot(3),
             mInv.GetItemInSlot(4));
         string errorMsg = mTester.GetErrorMessage(ShipTester.TestShipFunction(curItems));
-        Debug.Log(errorMsg);
+        HintSystem.Instance.Show(errorMsg);
+        StartCoroutine(HideAfterDelay(2f));
+    }
+    private IEnumerator HideAfterDelay(float dealy)
+    {
+        yield return new WaitForSeconds(dealy);
+        HintSystem.Instance.Hide();
+        yield return null;
     }
     public override void RemoveItemFromSlot(int slotNo)
     {
