@@ -8,13 +8,16 @@ public class Collectable : MonoBehaviour, ICollectable
     //TODO: How would i handle the collider then?
     public CollectableSO ItemDef; 
     private SpriteRenderer mRenderer;
+    private bool isCollected = false;
+    public bool IsCollected => isCollected;
 
     public CollectableSO OnCollect()
     {
+        if(isCollected) return null;
+        isCollected = true;
         return ItemDef;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
        mRenderer = GetComponent<SpriteRenderer>(); 

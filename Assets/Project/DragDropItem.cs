@@ -11,6 +11,7 @@ public class DragDropItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     private Image mImage;
     private RectTransform mTransform;
     private CanvasGroup mCanvasGroup;
+
     [SerializeField]
     private Canvas ParentCanvas;
     private Vector2 mOriginalPosition;

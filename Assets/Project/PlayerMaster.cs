@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,7 +23,6 @@ public class PlayerMaster : MonoBehaviour
         
     }
 
-
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveVal = context.ReadValue<Vector2>();
@@ -30,12 +30,14 @@ public class PlayerMaster : MonoBehaviour
         //Debug.Log("Recieved movement input " + moveVal);
     }
 
+    [MethodImpl(MethodImplOptions.Synchronized)]
     private void OnTriggerEnter2D(Collider2D other) 
     {
         ICollectable col = other.GetComponent<ICollectable>();
         if(col != null)
         {
             CollectableSO so = col.OnCollect();
+            if(so == null) return;
             if(mInventory.AddItem(so))
                 Destroy(other.gameObject);
         }

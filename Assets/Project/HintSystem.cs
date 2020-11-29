@@ -8,7 +8,7 @@ public class HintSystem : MonoBehaviour
         private static HintSystem mInstance;
         public static HintSystem Instance { get { return mInstance; }}
 
-        public Tooltip Tooltip;
+        public StaticTooltip Tooltip;
 
         private void Awake() 
         {

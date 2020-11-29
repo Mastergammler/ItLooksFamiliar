@@ -11,12 +11,10 @@ public class UIManager : MonoBehaviour
 
     private static UIManager mInstance;
     public static UIManager Instance { get { return mInstance;}}
+    public bool InShipProximity { set;get;}
     
-
-    // Start is called before the first frame update
     void Start()
     {
-        
         if(mInstance == null) mInstance = this;
     }
 
@@ -28,6 +26,7 @@ public class UIManager : MonoBehaviour
     }
     public void ToggleRepairConsole(CallbackContext ctx)
     {
+        if(!InShipProximity) return;
         ShipUI.SetActive(!ShipUI.activeSelf);
     }
 }

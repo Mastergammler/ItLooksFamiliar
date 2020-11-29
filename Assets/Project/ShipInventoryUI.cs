@@ -5,6 +5,9 @@ using UnityEngine;
 public class ShipInventoryUI : InventoryUI
 {
     public GameObject PlayerInventory;
+    
+    [SerializeField]
+    private float ShowTooltipTime = 2f;
 
     private IInventory mPlayerInv;
     private ShipTester mTester;
@@ -24,14 +27,22 @@ public class ShipInventoryUI : InventoryUI
             mInv.GetItemInSlot(2),
             mInv.GetItemInSlot(3),
             mInv.GetItemInSlot(4));
-        string errorMsg = mTester.GetErrorMessage(ShipTester.TestShipFunction(curItems));
+        Errors curError = ShipTester.TestShipFunction(curItems);
+        string errorMsg = mTester.GetErrorMessage(curError);
         HintSystem.Instance.Show(errorMsg);
-        StartCoroutine(HideAfterDelay(2f));
+        StartCoroutine(HideAfterDelay(ShowTooltipTime));
+        if(curError == Errors.NO_ERRORS) StartCoroutine(JumpToNextWorld(7f));
     }
     private IEnumerator HideAfterDelay(float dealy)
     {
         yield return new WaitForSeconds(dealy);
         HintSystem.Instance.Hide();
+        yield return null;
+    }
+    private IEnumerator JumpToNextWorld(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneLoader.Instance.LoadNext();
         yield return null;
     }
     public override void RemoveItemFromSlot(int slotNo)
