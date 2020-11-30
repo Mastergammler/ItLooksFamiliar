@@ -31,7 +31,12 @@ public class ShipInventoryUI : InventoryUI
         string errorMsg = mTester.GetErrorMessage(curError);
         HintSystem.Instance.Show(errorMsg);
         StartCoroutine(HideAfterDelay(ShowTooltipTime));
-        if(curError == Errors.NO_ERRORS) StartCoroutine(JumpToNextWorld(7f));
+        if(curError == Errors.NO_ERRORS)
+        {
+            StartCoroutine(JumpToNextWorld(7f));
+            SoundManager.Instance.PlaySound("Success");
+        } 
+        else { SoundManager.Instance.PlaySound("Error");}
     }
     private IEnumerator HideAfterDelay(float dealy)
     {
@@ -50,6 +55,7 @@ public class ShipInventoryUI : InventoryUI
         CollectableSO item = mInv.GetItemInSlot(slotNo);
         mInv.RemoveItem(slotNo);
         bool succ = mPlayerInv.AddItem(item);
+        SoundManager.Instance.PlaySound("Uninstall");
     }
 
     public void AddItem(int targetSlotNo,int itemSlotNo)
@@ -57,5 +63,6 @@ public class ShipInventoryUI : InventoryUI
         CollectableSO item = mPlayerInv.GetItemInSlot(itemSlotNo);
         bool succ = mInv.AddItem(targetSlotNo,item);
         mPlayerInv.RemoveItem(itemSlotNo);
+        SoundManager.Instance.PlaySound("Install");
     }
 }

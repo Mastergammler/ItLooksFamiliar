@@ -10,17 +10,13 @@ public class PlayerMaster : MonoBehaviour
 
     private IMoveable mMovement;
     private IInventory mInventory;
+    private AudioSource mAudioSource;
     // Start is called before the first frame update
     void Start()
     {
        mMovement = GetComponent<IMoveable>(); 
        mInventory = GetComponent<IInventory>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       mAudioSource = GetComponent<AudioSource>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -39,7 +35,10 @@ public class PlayerMaster : MonoBehaviour
             CollectableSO so = col.OnCollect();
             if(so == null) return;
             if(mInventory.AddItem(so))
+            {
+                mAudioSource.Play();
                 Destroy(other.gameObject);
+            }
         }
     }
 

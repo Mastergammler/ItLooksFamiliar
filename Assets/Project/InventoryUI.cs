@@ -41,6 +41,7 @@ public class InventoryUI : MonoBehaviour
         Instantiate(ItemPrefab, InventoryHolder.transform.position + v3, Quaternion.identity);
 
         mInv.RemoveItem(slotNo);
+        SoundManager.Instance.PlaySound("ThrowAway");
 
     }
 
