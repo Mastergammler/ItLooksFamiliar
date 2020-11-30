@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68b9e5132412d524ca00516bb836b031
+guid: 695ecaf084129ff49ac6927a7829bc40
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -27,7 +27,7 @@ ScriptedImporter:
     vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 2
+    spriteMode: 1
     spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
@@ -65,18 +65,18 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: 
+  - name: ship_blurry_bg_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
-    spriteID: 
+      width: 2048
+      height: 1024
+    spriteID: 1bb3dcc7796d3e245aaf48f4ab4a158c
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -89,73 +89,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Dude
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 3328
-      y: 4
-      width: 576
-      height: 319
-    spriteID: 4e17813b22cb6904abbe86eae000d0a6
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 2343, y: -306}
-  - name: Travel Device T2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4
-      width: 728
-      height: 790
-    spriteID: 240272a36c8d6ba4da93af96ae383509
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 877, y: -113}
-  - name: Travel BG
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 2796
-      y: 4
-      width: 524
-      height: 468
-    spriteID: 1b0e39c8e22c09f48a8104b4a81020ab
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 1486, y: -294}
-  - name: Layer 1
+  - name: BG
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -166,7 +100,7 @@ ScriptedImporter:
       y: 4
       width: 2048
       height: 1024
-    spriteID: 2bc797dda4d116c48a77da84410e2841
+    spriteID: bfebbf5c7e3747543a638ae8f18ba17f
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -189,47 +123,19 @@ ScriptedImporter:
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 4096
-  textureActualHeight: 4096
+  textureActualWidth: 2048
+  textureActualHeight: 1024
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Group 1
-    spriteName: 
-    isGroup: 1
-    parentIndex: -1
-    spriteID: 00000000000000000000000000000000
-    layerID: 6
-    mosaicPosition: {x: 0, y: 0}
-  - name: Dude
-    spriteName: Dude
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 4e17813b22cb6904abbe86eae000d0a6
-    layerID: 8
-    mosaicPosition: {x: 3328, y: 4}
-  - name: Travel Device T2
-    spriteName: Travel Device T2
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 240272a36c8d6ba4da93af96ae383509
-    layerID: 4
-    mosaicPosition: {x: 2060, y: 4}
-  - name: Travel BG
-    spriteName: Travel BG
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 1b0e39c8e22c09f48a8104b4a81020ab
-    layerID: 5
-    mosaicPosition: {x: 2796, y: 4}
-  - name: Layer 1
-    spriteName: Layer 1
+  - name: BG
+    spriteName: BG
     isGroup: 0
     parentIndex: -1
-    spriteID: 2bc797dda4d116c48a77da84410e2841
-    layerID: 2
+    spriteID: bfebbf5c7e3747543a638ae8f18ba17f
+    layerID: 134
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []
@@ -237,7 +143,7 @@ ScriptedImporter:
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: concept_exploration Texture
-  prefabAssetName: concept_exploration Prefab
-  spriteLibAssetName: concept_exploration Sprite Lib
+  textureAssetName: ship_blurry_bg Texture
+  prefabAssetName: ship_blurry_bg Prefab
+  spriteLibAssetName: ship_blurry_bg Sprite Lib
   secondarySpriteTextures: []

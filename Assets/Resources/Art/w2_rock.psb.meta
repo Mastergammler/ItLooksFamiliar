@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68b9e5132412d524ca00516bb836b031
+guid: d18d911eb16c52146a7c8ea2ef4062e9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -27,12 +27,12 @@ ScriptedImporter:
     vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 2
+    spriteMode: 1
     spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 256
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -65,18 +65,18 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: 
+  - name: w2_rock_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
-    spriteID: 
+      width: 256
+      height: 256
+    spriteID: 566f11d8eca974c4182c75d297d0f1b1
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -89,72 +89,6 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Dude
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 3328
-      y: 4
-      width: 576
-      height: 319
-    spriteID: 4e17813b22cb6904abbe86eae000d0a6
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 2343, y: -306}
-  - name: Travel Device T2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4
-      width: 728
-      height: 790
-    spriteID: 240272a36c8d6ba4da93af96ae383509
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 877, y: -113}
-  - name: Travel BG
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 2796
-      y: 4
-      width: 524
-      height: 468
-    spriteID: 1b0e39c8e22c09f48a8104b4a81020ab
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 1486, y: -294}
   - name: Layer 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -164,9 +98,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2048
-      height: 1024
-    spriteID: 2bc797dda4d116c48a77da84410e2841
+      width: 240
+      height: 167
+    spriteID: 0efe0f570495a5741b1e6249289a246c
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -176,68 +110,127 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -8, y: -4}
+  - name: Details
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 353
+      width: 219
+      height: 147
+    spriteID: a04b3ddcf0115d74193ce5524a9278e8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -24, y: 335}
+  - name: Highlight
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 179
+      width: 238
+      height: 166
+    spriteID: 1e697fc62c6d24e4bba44d687ab20296
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -9, y: 171}
+  - name: BoxBg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 252
+      y: 4
+      width: 237
+      height: 164
+    spriteID: a20916720f1afe54e8c68ea94ace6fe3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 239, y: -4}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 2048
-  importedTextureHeight: 2048
-  documentSize: {x: 2048, y: 1024}
+  importedTextureWidth: 512
+  importedTextureHeight: 512
+  documentSize: {x: 256, y: 256}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 4096
-  textureActualHeight: 4096
+  textureActualWidth: 256
+  textureActualHeight: 256
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Group 1
-    spriteName: 
-    isGroup: 1
-    parentIndex: -1
-    spriteID: 00000000000000000000000000000000
-    layerID: 6
-    mosaicPosition: {x: 0, y: 0}
-  - name: Dude
-    spriteName: Dude
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 4e17813b22cb6904abbe86eae000d0a6
-    layerID: 8
-    mosaicPosition: {x: 3328, y: 4}
-  - name: Travel Device T2
-    spriteName: Travel Device T2
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 240272a36c8d6ba4da93af96ae383509
-    layerID: 4
-    mosaicPosition: {x: 2060, y: 4}
-  - name: Travel BG
-    spriteName: Travel BG
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 1b0e39c8e22c09f48a8104b4a81020ab
-    layerID: 5
-    mosaicPosition: {x: 2796, y: 4}
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 2bc797dda4d116c48a77da84410e2841
+    spriteID: 0efe0f570495a5741b1e6249289a246c
     layerID: 2
     mosaicPosition: {x: 4, y: 4}
+  - name: Details
+    spriteName: Details
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a04b3ddcf0115d74193ce5524a9278e8
+    layerID: 5
+    mosaicPosition: {x: 4, y: 353}
+  - name: Highlight
+    spriteName: Highlight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1e697fc62c6d24e4bba44d687ab20296
+    layerID: 4
+    mosaicPosition: {x: 4, y: 179}
+  - name: BoxBg
+    spriteName: BoxBg
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a20916720f1afe54e8c68ea94ace6fe3
+    layerID: 6
+    mosaicPosition: {x: 252, y: 4}
   characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: concept_exploration Texture
-  prefabAssetName: concept_exploration Prefab
-  spriteLibAssetName: concept_exploration Sprite Lib
+  textureAssetName: w2_rock Texture
+  prefabAssetName: w2_rock Prefab
+  spriteLibAssetName: w2_rock Sprite Lib
   secondarySpriteTextures: []

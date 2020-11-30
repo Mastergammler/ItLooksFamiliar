@@ -30,25 +30,13 @@ public class ShipInventoryUI : InventoryUI
         Errors curError = ShipTester.TestShipFunction(curItems);
         string errorMsg = mTester.GetErrorMessage(curError);
         HintSystem.Instance.Show(errorMsg);
-        StartCoroutine(HideAfterDelay(ShowTooltipTime));
+        UIManager.Instance.HideShipHint();
         if(curError == Errors.NO_ERRORS)
         {
-            StartCoroutine(JumpToNextWorld(7f));
+            UIManager.Instance.InitateWorldTransitino();
             SoundManager.Instance.PlaySound("Success");
         } 
         else { SoundManager.Instance.PlaySound("Error");}
-    }
-    private IEnumerator HideAfterDelay(float dealy)
-    {
-        yield return new WaitForSeconds(dealy);
-        HintSystem.Instance.Hide();
-        yield return null;
-    }
-    private IEnumerator JumpToNextWorld(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneLoader.Instance.LoadNext();
-        yield return null;
     }
     public override void RemoveItemFromSlot(int slotNo)
     {

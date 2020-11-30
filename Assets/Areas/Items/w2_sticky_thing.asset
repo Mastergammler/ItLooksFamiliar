@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053151d92ad725b4ab4a4fb4b351f055, type: 3}
+  m_Name: w2_sticky_thing
+  m_EditorClassIdentifier: 
+  Image: {fileID: -5862652556028933014, guid: b69ccc8500d52c340af40485dbe3ac3f, type: 3}
+  Name: Sticky ball
+  Description: Super sticky material, i can't get it off my hands.
+  ThermalConductivity: 0
+  IsolationValue: 8
+  PressureResistance: 2
+  ElectricalConductivity: 0
+  VibrationValue: 0

@@ -29,4 +29,24 @@ public class UIManager : MonoBehaviour
         if(!InShipProximity) return;
         ShipUI.SetActive(!ShipUI.activeSelf);
     }
+    public void HideShipHint()
+    {
+        StartCoroutine(HideAfterDelay(4f));
+    }
+    public void InitateWorldTransitino()
+    {
+        StartCoroutine(JumpToNextWorld(6f));
+    }
+    private IEnumerator HideAfterDelay(float dealy)
+    {
+        yield return new WaitForSeconds(dealy);
+        HintSystem.Instance.Hide();
+        yield return null;
+    }
+    private IEnumerator JumpToNextWorld(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneLoader.Instance.LoadNext();
+        yield return null;
+    }
 }
