@@ -59,7 +59,7 @@ namespace ItLooksFamiliar.UI
         {
             CollectableSO item = mPlayerInv.GetItemInSlot(itemSlotNo);
             CollectableSO curItem = mInv.GetItemInSlot(targetSlotNo);
-            mInv.RemoveItem(curItem);
+            mInv.RemoveItem(targetSlotNo);
             mInv.AddItem(targetSlotNo,item);
             mPlayerInv.RemoveItem(itemSlotNo);
             SoundManager.Instance.PlaySound("Install");
