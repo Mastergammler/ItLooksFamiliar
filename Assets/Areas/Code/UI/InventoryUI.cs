@@ -37,6 +37,17 @@ namespace ItLooksFamiliar.UI
             mInv.OnInventoryChanged += UpdateInventoryUI;
         }
 
+        public CollectableSO RemoveItemFrom(int slotNo)
+        {
+            CollectableSO item = mInv.GetItemInSlot(slotNo);
+            mInv.RemoveItem(slotNo);
+            return item;
+        }
+        public void AddItem(CollectableSO item, int slotNo)
+        {
+            if(!mInv.AddItem(slotNo,item)) Debug.LogWarning("Item in slot no " + slotNo + " does already exist!!");
+        }
+        //todo ho to handle the instatiation then? -> it's now a different method for right click
         public virtual void RemoveItemFromSlot(int slotNo)
         {
             Collectable script = ItemPrefab.GetComponent<Collectable>();
@@ -47,7 +58,6 @@ namespace ItLooksFamiliar.UI
 
             mInv.RemoveItem(slotNo);
             SoundManager.Instance.PlaySound("ThrowAway");
-
         }
 
         private void UpdateInventoryUI(object sender, InventoryObject e)
