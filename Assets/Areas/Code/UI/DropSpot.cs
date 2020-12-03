@@ -20,16 +20,9 @@ namespace ItLooksFamiliar.UI
             }
         }
 
-        // Start is called before the first frame update
         void Start()
         {
             mInvUI = GetComponentInParent<ShipInventoryUI>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 

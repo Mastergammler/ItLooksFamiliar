@@ -6,6 +6,6 @@ namespace ItLooksFamiliar.Items
     public interface ICollectable
     {
         CollectableSO OnCollect();
-        bool IsCollected { get; }
+        bool IsCollected { set;get; }
     }
 }

@@ -13,7 +13,7 @@ namespace ItLooksFamiliar.Items
         public CollectableSO ItemDef;
         private SpriteRenderer mRenderer;
         private bool isCollected = false;
-        public bool IsCollected => isCollected;
+        public bool IsCollected { set { isCollected = value;} get { return isCollected; }}
 
         public CollectableSO OnCollect()
         {

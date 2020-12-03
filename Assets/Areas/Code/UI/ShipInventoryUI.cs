@@ -47,17 +47,26 @@ namespace ItLooksFamiliar.UI
         public override void RemoveItemFromSlot(int slotNo)
         {
             CollectableSO item = mInv.GetItemInSlot(slotNo);
-            mInv.RemoveItem(slotNo);
-            bool succ = mPlayerInv.AddItem(item);
-            SoundManager.Instance.PlaySound("Uninstall");
+            if (item != null)
+            {
+                mInv.RemoveItem(slotNo);
+                bool succ = mPlayerInv.AddItem(item);
+                SoundManager.Instance.PlaySound("Uninstall");
+            }
         }
 
         public void AddItem(int targetSlotNo, int itemSlotNo)
         {
             CollectableSO item = mPlayerInv.GetItemInSlot(itemSlotNo);
-            bool succ = mInv.AddItem(targetSlotNo, item);
+            CollectableSO curItem = mInv.GetItemInSlot(targetSlotNo);
+            mInv.RemoveItem(curItem);
+            mInv.AddItem(targetSlotNo,item);
             mPlayerInv.RemoveItem(itemSlotNo);
             SoundManager.Instance.PlaySound("Install");
+            if(curItem != null)
+            {
+                mPlayerInv.AddItem(curItem);
+            }
         }
     }
 

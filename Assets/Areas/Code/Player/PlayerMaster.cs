@@ -42,6 +42,10 @@ namespace ItLooksFamiliar.Items
                     mAudioSource.Play();
                     Destroy(other.gameObject);
                 }
+                else
+                {
+                    col.IsCollected = false;
+                }
             }
         }
     }
