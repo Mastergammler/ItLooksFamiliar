@@ -36,6 +36,7 @@ namespace ItLooksFamiliar.UI
         {
             if (!activeItem.Invoke()) return;
             mCanvasGroup.blocksRaycasts = false;
+            mCanvasGroup.alpha = 0.6f;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -48,6 +49,7 @@ namespace ItLooksFamiliar.UI
         {
             //if(!activeItem.Invoke()) return;
             mCanvasGroup.blocksRaycasts = true;
+            mCanvasGroup.alpha = 1f;
             mTransform.anchoredPosition = mOriginalPosition;
         }
 

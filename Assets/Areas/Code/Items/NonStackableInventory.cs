@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ItLooksFamiliar.Sound;
 using UnityEngine;
 
 namespace ItLooksFamiliar.Items
 {
 
+    [RequireComponent(typeof(ISoundPlayback))]
     public class NonStackableInventory : MonoBehaviour, IInventory
     {
         //##################
@@ -22,7 +24,17 @@ namespace ItLooksFamiliar.Items
         //##  MEMBERS  ##
         //###############
         private Dictionary<int, CollectableSO> mInventory = new Dictionary<int, CollectableSO>();
+        private ISoundPlayback mSound;
         public event EventHandler<InventoryObject> OnInventoryChanged;
+
+        //################
+        //##    MONO    ##
+        //################
+
+        private void Awake() 
+        {
+            mSound = GetComponent<ISoundPlayback>();
+        }
 
         //#################
         //##  INTERFACE  ##
@@ -35,6 +47,8 @@ namespace ItLooksFamiliar.Items
             {
                 mInventory.Add(nextSlot, item);
                 OnInventoryChanged.Invoke(this, new InventoryObject(nextSlot, item));
+                mSound.Play("Add");
+
                 return true;
             }
             return false;
@@ -45,6 +59,7 @@ namespace ItLooksFamiliar.Items
             if (mInventory.ContainsKey(slotNo)) return false;
             mInventory.Add(slotNo, item);
             OnInventoryChanged.Invoke(this, new InventoryObject(slotNo, item));
+            mSound.Play("Add");
             return true;
         }
 
@@ -82,6 +97,7 @@ namespace ItLooksFamiliar.Items
                 }
                 mInventory.Remove(slotNo);
                 OnInventoryChanged.Invoke(this, new InventoryObject(slotNo));
+                mSound.Play("Remove");
             }
         }
 
@@ -91,6 +107,7 @@ namespace ItLooksFamiliar.Items
             {
                 mInventory.Remove(slotNo);
                 OnInventoryChanged.Invoke(this, new InventoryObject(slotNo));
+                mSound.Play("Remove");
             }
         }
     }

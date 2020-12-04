@@ -23,6 +23,7 @@ namespace ItLooksFamiliar.UI
             if (eventData.button == PointerEventData.InputButton.Right)
             {
                 int ownIndex = transform.GetSiblingIndex();
+                transform.GetComponentInParent<ItemTooltip>().OnPointerExit(eventData);
                 mParentController.RemoveItemFromSlot(ownIndex);
             }
         }
