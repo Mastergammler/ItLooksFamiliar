@@ -49,9 +49,12 @@ namespace ItLooksFamiliar.UI
             CollectableSO item = mInv.GetItemInSlot(slotNo);
             if (item != null)
             {
-                mInv.RemoveItem(slotNo);
                 bool succ = mPlayerInv.AddItem(item);
-                SoundManager.Instance.PlaySound("Uninstall");
+                if(succ)
+                {
+                    mInv.RemoveItem(slotNo);
+                    SoundManager.Instance.PlaySound("Uninstall");
+                }
             }
         }
 
