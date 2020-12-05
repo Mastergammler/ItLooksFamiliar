@@ -45,19 +45,22 @@ namespace ItLooksFamiliar.UI
         }
         public void AddItem(CollectableSO item, int slotNo)
         {
-            if(!mInv.AddItem(slotNo,item)) Debug.LogWarning("Item in slot no " + slotNo + " does already exist!!");
+            if (!mInv.AddItem(slotNo, item)) Debug.LogWarning("Item in slot no " + slotNo + " does already exist!!");
         }
         //todo ho to handle the instatiation then? -> it's now a different method for right click
         public virtual void RemoveItemFromSlot(int slotNo)
         {
             Collectable script = ItemPrefab.GetComponent<Collectable>();
             script.ItemDef = mInv.GetItemInSlot(slotNo);
-            float val = UnityEngine.Random.Range(-2.0f, 2.0f);
-            Vector3 v3 = new Vector3(val, 1, 0);
-            Instantiate(ItemPrefab, InventoryHolder.transform.position + v3, Quaternion.identity);
+            if (script.ItemDef != null)
+            {
+                float val = UnityEngine.Random.Range(-2.0f, 2.0f);
+                Vector3 v3 = new Vector3(val, 1, 0);
+                Instantiate(ItemPrefab, InventoryHolder.transform.position + v3, Quaternion.identity);
 
-            mInv.RemoveItem(slotNo);
-            SoundManager.Instance.PlaySound("ThrowAway");
+                mInv.RemoveItem(slotNo);
+                SoundManager.Instance.PlaySound("ThrowAway");
+            }
         }
 
         private void UpdateInventoryUI(object sender, InventoryObject e)
