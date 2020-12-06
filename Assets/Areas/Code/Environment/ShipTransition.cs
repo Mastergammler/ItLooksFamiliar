@@ -23,7 +23,7 @@ namespace ItLooksFamiliar.Environment
         public void StartTransition()
         {
             SoundManager.Instance.PlaySound("PowerUp");
-            StartCoroutine(WaitForBoom(25f));
+            StartCoroutine(WaitForBoom(8.1f));
         }
         public void DisableShip()
         {

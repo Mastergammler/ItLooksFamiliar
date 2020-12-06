@@ -10,6 +10,8 @@ namespace ItLooksFamiliar.Core
     {
         public GameObject InventoryUI;
         public GameObject ShipUI;
+        public GameObject TransitionCanvas;
+        public Animation Animation;
 
 
         private static UIManager mInstance;
@@ -38,7 +40,7 @@ namespace ItLooksFamiliar.Core
         }
         public void InitateWorldTransitino()
         {
-            StartCoroutine(JumpToNextWorld(6f));
+            StartCoroutine(JumpToNextWorld(4f));
         }
         private IEnumerator HideAfterDelay(float dealy)
         {
@@ -49,6 +51,9 @@ namespace ItLooksFamiliar.Core
         private IEnumerator JumpToNextWorld(float delay)
         {
             yield return new WaitForSeconds(delay);
+            Animator anim = TransitionCanvas.GetComponent<Animator>();
+            anim.Play("FadeOut");
+            yield return new WaitForSeconds(1f);
             SceneLoader.Instance.LoadNext();
             yield return null;
         }
