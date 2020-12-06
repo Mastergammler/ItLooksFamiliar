@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using ItLooksFamiliar.Core;
+using ItLooksFamiliar.Environment;
 using ItLooksFamiliar.Items;
 using ItLooksFamiliar.Sound;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace ItLooksFamiliar.UI
         private float ShowTooltipTime = 2f;
 
         private IInventory mPlayerInv;
+        [SerializeField]
+        private ShipTransition Ship;
         private ShipTester mTester;
 
         private void Start()
@@ -39,8 +42,8 @@ namespace ItLooksFamiliar.UI
             UIManager.Instance.HideShipHint();
             if (curError == Errors.NO_ERRORS)
             {
-                UIManager.Instance.InitateWorldTransitino();
                 SoundManager.Instance.PlaySound("Success");
+                Ship.StartTransition();
             }
             else { SoundManager.Instance.PlaySound("Error"); }
         }
