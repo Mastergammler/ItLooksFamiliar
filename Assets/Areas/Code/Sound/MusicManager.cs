@@ -38,6 +38,7 @@ namespace ItLooksFamiliar.Sound
 
         public void ContinueMusic()
         {
+            if(mAudioSource.isPlaying) return;
             mAudioSource.Play();
         }
 

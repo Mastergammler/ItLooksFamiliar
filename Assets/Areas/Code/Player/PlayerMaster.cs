@@ -14,16 +14,25 @@ namespace ItLooksFamiliar.Items
         private IMoveable mMovement;
         private IInventory mInventory;
         private AudioSource mAudioSource;
-        // Start is called before the first frame update
+        private bool mMovementBlocked = true;
+
         void Start()
         {
             mMovement = GetComponent<IMoveable>();
             mInventory = GetComponent<IInventory>();
             mAudioSource = GetComponent<AudioSource>();
+            StartCoroutine(unblockMovement());
+        }
+
+        private IEnumerator unblockMovement()
+        {
+            yield return new WaitForSeconds(4f);
+            mMovementBlocked = false;
         }
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if(mMovementBlocked) return;
             Vector2 moveVal = context.ReadValue<Vector2>();
             mMovement.Move(moveVal);
             //Debug.Log("Recieved movement input " + moveVal);

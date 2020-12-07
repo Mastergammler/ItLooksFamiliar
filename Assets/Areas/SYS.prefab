@@ -113,6 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryUI: {fileID: 0}
   ShipUI: {fileID: 0}
+  TransitionCanvas: {fileID: 0}
+  Animation: {fileID: 0}
+  Player: {fileID: 0}
+  Ship: {fileID: 0}
 --- !u!114 &4404471135284044591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,4 +153,12 @@ MonoBehaviour:
   - Name: Collect
     Clip: {fileID: 8300000, guid: 90d3b7654076a4546aeb24b49ee64a35, type: 3}
     Volume: 0.79
+    Source: {fileID: 0}
+  - Name: PowerUp
+    Clip: {fileID: 8300000, guid: 9e405405787bbd04aa0eb1b482d31228, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
+  - Name: PowerDown
+    Clip: {fileID: 8300000, guid: 2a76d5b1b2aad9b47bdae5d500d62ec4, type: 3}
+    Volume: 1
     Source: {fileID: 0}
