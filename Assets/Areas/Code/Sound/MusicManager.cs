@@ -24,7 +24,7 @@ namespace ItLooksFamiliar.Sound
             mAudioSource = GetComponent<AudioSource>();
             mAudioSource.clip = MainMusic;
             mAudioSource.loop = true;
-            mAudioSource.Play();
+            //mAudioSource.Play();
         }
 
         //###############

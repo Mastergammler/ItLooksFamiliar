@@ -19,11 +19,13 @@ namespace ItLooksFamiliar.Environment
         private GameObject mCamera;
         private ScreenShake mShake;
         // Start is called before the first frame update
+
         void Start()
         {
             mAnim = GetComponent<Animator>();
             mCamera = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).gameObject;
             mShake = GetComponent<ScreenShake>();
+            ShipTransitionIn();
         }
 
         public void StartTransition()
@@ -38,8 +40,22 @@ namespace ItLooksFamiliar.Environment
         }
         public void DisableShip()
         {
-            gameObject.SetActive(false);
             Player.SetActive(false);
+            gameObject.SetActive(false);
+        }
+        private void ShipTransitionIn()
+        {
+            Debug.Log("Inside ship transitin");
+           mShake.TimedExecution(1f); 
+           mAnim.Play("JumpIn");
+           StartCoroutine(CameraOnPlayer());
+        }
+        private IEnumerator CameraOnPlayer()
+        {
+            yield return new WaitForSeconds(4f);
+            Debug.Log("SetCameraOnPlayer");
+            mCamera.GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
+            UIManager.Instance.ShowInventory();
         }
         
         private IEnumerator WaitForBoom(float time)

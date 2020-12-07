@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ItLooksFamiliar.Environment;
+using ItLooksFamiliar.Sound;
 using ItLooksFamiliar.UI;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -12,6 +14,8 @@ namespace ItLooksFamiliar.Core
         public GameObject ShipUI;
         public GameObject TransitionCanvas;
         public Animation Animation;
+        public GameObject Player;
+        public GameObject Ship;
 
 
         private static UIManager mInstance;
@@ -22,6 +26,7 @@ namespace ItLooksFamiliar.Core
         void Start()
         {
             if (mInstance == null) mInstance = this;
+            StartCoroutine(ShipJumpIn());
         }
 
         public void ToggleInventory(CallbackContext ctx)
@@ -29,6 +34,10 @@ namespace ItLooksFamiliar.Core
             if(LockInventoryControls) return;
             bool isActive = InventoryUI.activeSelf;
             InventoryUI.SetActive(!isActive);
+        }
+        public void ShowInventory()
+        {
+            InventoryUI.SetActive(true);
         }
         public void ToggleRepairConsole(CallbackContext ctx)
         {
@@ -63,6 +72,16 @@ namespace ItLooksFamiliar.Core
             yield return new WaitForSeconds(1f);
             SceneLoader.Instance.LoadNext();
             yield return null;
+        }
+
+        private IEnumerator ShipJumpIn()
+        {
+            yield return new WaitForSeconds(1f);
+            SoundManager.Instance.PlaySound("PowerDown");
+            yield return new WaitForSeconds(4f);
+            Player.SetActive(true);
+            Ship.SetActive(true);
+            MusicManager.Instance.ContinueMusic();
         }
     }
 }

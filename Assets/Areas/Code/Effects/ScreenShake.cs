@@ -19,7 +19,7 @@ namespace ItLooksFamiliar.Effects
         //################
         //##    MONO    ##
         //################
-        void Start()
+        void Awake()
         {
             mCamera = GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
         }
@@ -38,7 +38,26 @@ namespace ItLooksFamiliar.Effects
             }
             yield return null;
         }
+        private IEnumerator screenShakeWithCustomTime(float shakeTime)
+        {       
+            if(mCamera != null)
+            {
+                var noise = mCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                noise.m_AmplitudeGain = ScreenShakeAmplitude;
+                noise.m_FrequencyGain = FrequencyRamp;
+                yield return new WaitForSeconds(shakeTime);
+                noise.m_AmplitudeGain = 0f;
+                noise.m_FrequencyGain = 0f;
+            }
+            yield return null;
 
+        }
+
+        public void TimedExecution(float shakeTime)
+        {
+            if(mCurrentRoutine != null) StopCoroutine(mCurrentRoutine);
+            mCurrentRoutine = StartCoroutine(screenShakeWithCustomTime(shakeTime));
+        }
         public void Execute()
         {
             if(mCurrentRoutine != null)
