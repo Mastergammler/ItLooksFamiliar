@@ -17,6 +17,8 @@ namespace ItLooksFamiliar.UI
 
         [SerializeField]
         private Canvas ParentCanvas;
+        [SerializeField]
+        private RectTransform ParentPanel;
         private Vector2 mOriginalPosition;
 
         //################
@@ -42,7 +44,9 @@ namespace ItLooksFamiliar.UI
         public void OnDrag(PointerEventData eventData)
         {
             if (!activeItem.Invoke()) return;
-            mTransform.anchoredPosition += eventData.delta / ParentCanvas.scaleFactor;
+            Vector2 additionalScale = new Vector2(1f,1f);
+            if(ParentPanel != null) additionalScale = ParentPanel.localScale;
+            mTransform.anchoredPosition += eventData.delta / (ParentCanvas.scaleFactor * additionalScale);
         }
 
         public void OnEndDrag(PointerEventData eventData)
