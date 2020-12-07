@@ -17,6 +17,7 @@ namespace ItLooksFamiliar.Core
         private static UIManager mInstance;
         public static UIManager Instance { get { return mInstance; } }
         public bool InShipProximity { set; get; }
+        public bool LockInventoryControls { set; get; }
 
         void Start()
         {
@@ -25,14 +26,20 @@ namespace ItLooksFamiliar.Core
 
         public void ToggleInventory(CallbackContext ctx)
         {
-
+            if(LockInventoryControls) return;
             bool isActive = InventoryUI.activeSelf;
             InventoryUI.SetActive(!isActive);
         }
         public void ToggleRepairConsole(CallbackContext ctx)
         {
+            if(LockInventoryControls) return;
             if (!InShipProximity) return;
             ShipUI.SetActive(!ShipUI.activeSelf);
+        }
+        public void HideUI()
+        {
+            InventoryUI.SetActive(false);
+            ShipUI.SetActive(false);
         }
         public void HideShipHint()
         {
