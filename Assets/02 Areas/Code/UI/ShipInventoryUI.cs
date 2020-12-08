@@ -37,7 +37,7 @@ namespace ItLooksFamiliar.UI
                 mInv.GetItemInSlot(3),
                 mInv.GetItemInSlot(4));
             Errors curError = ShipTester.TestShipFunction(curItems);
-            string errorMsg = mTester.GetErrorMessage(curError);
+            string errorMsg = mTester.GetErrorMessage(curError,curItems);
             HintSystem.Instance.Show(errorMsg);
             UIManager.Instance.HideShipHint();
             if (curError == Errors.NO_ERRORS)

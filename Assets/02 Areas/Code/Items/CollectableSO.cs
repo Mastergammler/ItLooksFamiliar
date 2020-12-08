@@ -19,5 +19,17 @@ namespace ItLooksFamiliar.Items
         public float PressureResistance;
         public float ElectricalConductivity;
         public float VibrationValue;
+
+        [Multiline]
+        public string ThermalError;
+        [Multiline]
+        public string IsolationError;
+        [Multiline]
+        public string PressureError;
+        [Multiline]
+        public string ConductivityError;
+        [Multiline]
+        public string VibrationError;
+
     }
 }

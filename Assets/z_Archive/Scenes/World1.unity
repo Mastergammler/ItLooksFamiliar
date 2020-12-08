@@ -52519,10 +52519,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InterstellarShip
       objectReference: {fileID: 0}
-    - target: {fileID: 7338585271751164571, guid: 76471e988dcfbc743852bb834c8abd2f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7338585271751164573, guid: 76471e988dcfbc743852bb834c8abd2f, type: 3}
       propertyPath: Player
       value: 

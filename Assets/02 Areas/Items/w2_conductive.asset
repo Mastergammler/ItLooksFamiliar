@@ -20,3 +20,8 @@ MonoBehaviour:
   PressureResistance: 0
   ElectricalConductivity: 10
   VibrationValue: 0
+  ThermalError: The sparkly slime shortened out the pump somehow ...
+  IsolationError: Isolate the core with a liquid???
+  PressureError: This liquid can't bridge the broken pipes of the pace time compensator.
+  ConductivityError: 
+  VibrationError: Liquids don't work as antenna.

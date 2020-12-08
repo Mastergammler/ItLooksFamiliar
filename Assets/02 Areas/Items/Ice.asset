@@ -20,3 +20,9 @@ MonoBehaviour:
   PressureResistance: 0
   ElectricalConductivity: 0
   VibrationValue: 0
+  ThermalError: 
+  IsolationError: How is melting ice supposed to isolate versus the  radiation?
+  PressureError: The pressure in the space time compensator will crush the ice into
+    peaces.
+  ConductivityError: The conductivity of ice is not sufficient to fix the circuit.
+  VibrationError: How am i supposed to secure a melting ice cube as antenna?

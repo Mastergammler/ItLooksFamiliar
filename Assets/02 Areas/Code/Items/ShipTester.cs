@@ -26,6 +26,19 @@ namespace ItLooksFamiliar.Items
                 default: return RepairSuccessfullMessage;
             }
         }
+        public string GetErrorMessage(Errors errorType, RepairItems items) 
+        {
+
+            switch(errorType)
+            {
+                case Errors.COOLING_ERROR: return items.Cooling != null ? items.Cooling.ThermalError : "Item not present";
+                case Errors.ISOLATION_ERROR: return items.Core != null ? items.Core.IsolationError:"Item not present";
+                case Errors.SPACE_TIME_COMP_ERROR: return items.SpaceTimeComp != null ? items.SpaceTimeComp.PressureError:"Item not present";
+                case Errors.CRICUIT_ERROR: return items.Circuit != null ? items.Circuit.ConductivityError:"Item not present";
+                case Errors.ANTENNA_ERROR: return items.Antenna != null ? items.Antenna.VibrationError:"Item not present";
+                default: return RepairSuccessfullMessage;
+            }
+        }
 
         public static Errors TestShipFunction(RepairItems items)
         {

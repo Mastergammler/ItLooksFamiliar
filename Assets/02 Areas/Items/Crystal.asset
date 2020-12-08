@@ -20,3 +20,8 @@ MonoBehaviour:
   PressureResistance: 10
   ElectricalConductivity: 0
   VibrationValue: 0
+  ThermalError: The crystal doesn't even fit in the cooling tanks.
+  IsolationError: The crystal is way to small to isolate the dmg on the core.
+  PressureError: 
+  ConductivityError: The crystal doesn't conduct electricity.
+  VibrationError: That small crystal is not good for amplifying vibrations.

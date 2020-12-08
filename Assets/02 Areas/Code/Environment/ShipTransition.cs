@@ -36,7 +36,7 @@ namespace ItLooksFamiliar.Environment
             mCamera.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
             Player.SetActive(false);
             StartCoroutine(WaitForBoom(8.3f));
-            mShake.ExecuteWithDelay(4f);
+            mShake.ExecuteWithDelay(7f);
         }
         public void DisableShip()
         {

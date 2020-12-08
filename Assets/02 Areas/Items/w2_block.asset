@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: -3515078564121480323, guid: 272187f9d1a68044fb6b2305392e0aed, type: 3}
   Name: Slime Block
-  Description: Some black of slime. It's quite malleable.
+  Description: Some black of slime. You can deform it, but it will always return
+    into it's original form.
   ThermalConductivity: 4
   IsolationValue: 0
   PressureResistance: 8
   ElectricalConductivity: 6
   VibrationValue: 9
+  ThermalError: I can't squash this block enough, to fit it into the cooling tank.
+  IsolationError: The block doesn't seem dense enough to block radiation.
+  PressureError: 
+  ConductivityError: This block has no electrical conductivity. It's actually a good
+    isolator.
+  VibrationError: 

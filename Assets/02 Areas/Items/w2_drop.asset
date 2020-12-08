@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: 2202544480994838738, guid: 170b5449e6361a54fae440b791abd179, type: 3}
   Name: Slime Drop
-  Description: Kinda looks like a big rain drop. Feels cold.
+  Description: Kinda looks like a big rain drop. Can be moleded an separated into
+    small pieces.
   ThermalConductivity: 8
   IsolationValue: 0
   PressureResistance: 0
   ElectricalConductivity: 0
   VibrationValue: 0
+  ThermalError: 
+  IsolationError: The slime doesn't hold it's form to well, to be an isolator.
+  PressureError: The slime will disperse under the pressure of the space time compensator.
+  ConductivityError: The silme drop doesn't seem to be conductive.
+  VibrationError: The slime drop will not hold it's form as antenna.

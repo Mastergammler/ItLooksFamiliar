@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 053151d92ad725b4ab4a4fb4b351f055, type: 3}
-  m_Name: w2_sticky_thing
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  Image: {fileID: -5862652556028933014, guid: b69ccc8500d52c340af40485dbe3ac3f, type: 3}
-  Name: Sticky ball
-  Description: Super sticky material, i can't get it off my hands.
+  Image: {fileID: 1661101348417805765, guid: 30be9dd58df97364d8e8461c46a7a87d, type: 3}
+  Name: Rock
+  Description: A rock of the surface, looks pretty stable
   ThermalConductivity: 0
   IsolationValue: 8
   PressureResistance: 2
   ElectricalConductivity: 0
   VibrationValue: 0
+  ThermalError: Put stones into the colling tanks? Nope!
+  IsolationError: 
+  PressureError: The rock would crumble under the pressure of the space time compensator.
+  ConductivityError: The rock doesn't have any electrical conductivity.
+  VibrationError: The rock is not a good amplifyer for vibrations.

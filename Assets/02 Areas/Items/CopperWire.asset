@@ -20,3 +20,8 @@ MonoBehaviour:
   PressureResistance: 0
   ElectricalConductivity: 10
   VibrationValue: 0
+  ThermalError: I don't think the cooling system can pump copper through the tubes.
+  IsolationError: How is this wire supposed to isolate the core from radiation?
+  PressureError: Copper will not work for the space time compensator.
+  ConductivityError: 
+  VibrationError: This thin wire doesn't transfer vibrations very effectiveley.

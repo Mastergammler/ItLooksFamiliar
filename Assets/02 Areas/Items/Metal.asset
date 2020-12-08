@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: -4354374103620902118, guid: bcaab7b43150d7f4a923db74ec0a09a7, type: 3}
   Name: Metal
-  Description: 'Some piece of metal. '
+  Description: Thin piece of metal. It's quite flexible.
   ThermalConductivity: 4
   IsolationValue: 0
   PressureResistance: 0
   ElectricalConductivity: 6
   VibrationValue: 9
+  ThermalError: Metal doesn't fit in the cooling tanks.
+  IsolationError: 'I don''t think this thin piece of metal, is enough to stop the
+    radiation. '
+  PressureError: The metal will just bend under the pressure of the space time compensator.
+  ConductivityError: It would be quite hard to fit this piece into the right spots
+    of the circuit.
+  VibrationError: 
