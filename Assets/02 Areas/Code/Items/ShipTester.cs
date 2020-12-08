@@ -36,7 +36,7 @@ namespace ItLooksFamiliar.Items
                 case Errors.SPACE_TIME_COMP_ERROR: return items.SpaceTimeComp != null ? items.SpaceTimeComp.PressureError:"Item not present";
                 case Errors.CRICUIT_ERROR: return items.Circuit != null ? items.Circuit.ConductivityError:"Item not present";
                 case Errors.ANTENNA_ERROR: return items.Antenna != null ? items.Antenna.VibrationError:"Item not present";
-                case Errors.NO_ITEMS: return "No items present";
+                case Errors.NO_ITEMS: return "More items required!";
                 default: return RepairSuccessfullMessage;
             }
         }
@@ -49,8 +49,8 @@ namespace ItLooksFamiliar.Items
             if (items.SpaceTimeComp != null && items.SpaceTimeComp.PressureResistance < 8) return Errors.SPACE_TIME_COMP_ERROR;
             if (items.Circuit != null && items.Circuit.ElectricalConductivity < 8) return Errors.CRICUIT_ERROR;
             if (items.Antenna != null && items.Antenna.VibrationValue < 8) return Errors.ANTENNA_ERROR;
-            if(items.Cooling == null && items.Core == null && items.SpaceTimeComp == null && items.Circuit == null && items.Antenna == null) return Errors.NO_ITEMS;
-            return Errors.NO_ERRORS;
+            if(items.Cooling != null && items.Core != null && items.SpaceTimeComp != null && items.Circuit != null && items.Antenna != null) return Errors.NO_ERRORS;
+            return Errors.NO_ITEMS;
         }
     }
 
