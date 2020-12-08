@@ -36,24 +36,27 @@ namespace ItLooksFamiliar.Items
                 case Errors.SPACE_TIME_COMP_ERROR: return items.SpaceTimeComp != null ? items.SpaceTimeComp.PressureError:"Item not present";
                 case Errors.CRICUIT_ERROR: return items.Circuit != null ? items.Circuit.ConductivityError:"Item not present";
                 case Errors.ANTENNA_ERROR: return items.Antenna != null ? items.Antenna.VibrationError:"Item not present";
+                case Errors.NO_ITEMS: return "No items present";
                 default: return RepairSuccessfullMessage;
             }
         }
 
         public static Errors TestShipFunction(RepairItems items)
         {
-            if (items.Cooling == null || items.Cooling.ThermalConductivity < 8) return Errors.COOLING_ERROR;
-            if (items.Core == null || items.Core.IsolationValue < 8) return Errors.ISOLATION_ERROR;
-            if (items.SpaceTimeComp == null || items.SpaceTimeComp.PressureResistance < 8) return Errors.SPACE_TIME_COMP_ERROR;
-            if (items.Circuit == null || items.Circuit.ElectricalConductivity < 8) return Errors.CRICUIT_ERROR;
-            if (items.Antenna == null || items.Antenna.VibrationValue < 8) return Errors.ANTENNA_ERROR;
+            //todo fix error, one right item = success
+            if (items.Cooling != null && items.Cooling.ThermalConductivity < 8) return Errors.COOLING_ERROR;
+            if (items.Core != null && items.Core.IsolationValue < 8) return Errors.ISOLATION_ERROR;
+            if (items.SpaceTimeComp != null && items.SpaceTimeComp.PressureResistance < 8) return Errors.SPACE_TIME_COMP_ERROR;
+            if (items.Circuit != null && items.Circuit.ElectricalConductivity < 8) return Errors.CRICUIT_ERROR;
+            if (items.Antenna != null && items.Antenna.VibrationValue < 8) return Errors.ANTENNA_ERROR;
+            if(items.Cooling == null && items.Core == null && items.SpaceTimeComp == null && items.Circuit == null && items.Antenna == null) return Errors.NO_ITEMS;
             return Errors.NO_ERRORS;
         }
     }
 
     public enum Errors
     {
-        COOLING_ERROR, ISOLATION_ERROR, SPACE_TIME_COMP_ERROR, CRICUIT_ERROR, ANTENNA_ERROR, NO_ERRORS
+        COOLING_ERROR, ISOLATION_ERROR, SPACE_TIME_COMP_ERROR, CRICUIT_ERROR, ANTENNA_ERROR, NO_ERRORS, NO_ITEMS
     }
 
     public struct RepairItems
