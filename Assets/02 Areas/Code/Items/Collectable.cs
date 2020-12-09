@@ -9,11 +9,22 @@ namespace ItLooksFamiliar.Items
     [RequireComponent(typeof(SpriteRenderer))]
     public class Collectable : MonoBehaviour, ICollectable
     {
-        //TODO: How would i handle the collider then?
+        //##################
+        //##    EDITOR    ##
+        //##################
+
         public CollectableSO ItemDef;
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
         private SpriteRenderer mRenderer;
         private bool isCollected = false;
-        public bool IsCollected { set { isCollected = value;} get { return isCollected; }}
+
+        //#################
+        //##  INTERFACE  ##
+        //#################
 
         public CollectableSO OnCollect()
         {
@@ -22,11 +33,21 @@ namespace ItLooksFamiliar.Items
             return ItemDef;
         }
 
+        //################
+        //##    MONO    ##
+        //################
+
         void Start()
         {
             mRenderer = GetComponent<SpriteRenderer>();
             mRenderer.sprite = ItemDef.Image;
         }
+
+        //#################
+        //##  ACCESSORS  ##
+        //#################
+
+        public bool IsCollected { set { isCollected = value;} get { return isCollected; }}
     }
 
 }

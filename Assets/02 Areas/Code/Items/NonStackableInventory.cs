@@ -27,6 +27,9 @@ namespace ItLooksFamiliar.Items
         private ISoundPlayback mSound;
         public event EventHandler<InventoryObject> OnInventoryChanged;
 
+        private Predicate<CollectableSO> itemNotNull = item => item != null;
+        private Predicate<int> slotAvailable = slotNo => slotNo != -1;
+
         //################
         //##    MONO    ##
         //################
@@ -42,25 +45,31 @@ namespace ItLooksFamiliar.Items
 
         public bool AddItem(CollectableSO item)
         {
-            int nextSlot = FindNextOpenSlot();
-            if (nextSlot != -1)
+            int slot = FindNextOpenSlot();
+
+            if (itemNotNull(item) && slotAvailable(slot))
             {
-                mInventory.Add(nextSlot, item);
-                OnInventoryChanged.Invoke(this, new InventoryObject(nextSlot, item));
+                mInventory.Add(slot, item);
+                OnInventoryChanged.Invoke(this, new InventoryObject(slot, item));
                 mSound.Play("Add");
 
                 return true;
             }
             return false;
         }
-
         public bool AddItem(int slotNo, CollectableSO item)
         {
-            if (mInventory.ContainsKey(slotNo)) return false;
-            mInventory.Add(slotNo, item);
-            OnInventoryChanged.Invoke(this, new InventoryObject(slotNo, item));
-            mSound.Play("Add");
-            return true;
+            Predicate<int> slotNoEmpty = slotNo =>  mInventory.ContainsKey(slotNo);
+
+            if (itemNotNull(item) && slotNoEmpty(slotNo)) 
+            {
+                mInventory.Add(slotNo, item);
+                OnInventoryChanged.Invoke(this, new InventoryObject(slotNo, item));
+                mSound.Play("Add");
+
+                return true;
+            }
+            return false;
         }
 
         private int FindNextOpenSlot()
@@ -73,32 +82,26 @@ namespace ItLooksFamiliar.Items
             return -1;
         }
 
-
-        // Will return null if empty
         public CollectableSO GetItemInSlot(int slotNo)
         {
             CollectableSO value = null;
             mInventory.TryGetValue(slotNo, out value);
             return value;
         }
-
+ 
         public void RemoveItem(CollectableSO item)
         {
-            int slotNo = -1;
-            if (mInventory.ContainsValue(item))
+            RemoveItem(FindIndexFor(item));
+        }
+
+        private int FindIndexFor(CollectableSO item)
+        {
+            foreach(var cur in mInventory)
             {
-                foreach (var i in mInventory)
-                {
-                    if (i.Value.Equals(item))
-                    {
-                        slotNo = i.Key;
-                        break;
-                    }
-                }
-                mInventory.Remove(slotNo);
-                OnInventoryChanged.Invoke(this, new InventoryObject(slotNo));
-                mSound.Play("Remove");
+                if(cur.Value.Equals(item))
+                    return cur.Key;
             }
+            return -1;
         }
 
         public void RemoveItem(int slotNo)

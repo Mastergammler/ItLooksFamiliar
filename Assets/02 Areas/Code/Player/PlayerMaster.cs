@@ -9,12 +9,18 @@ namespace ItLooksFamiliar.Items
 
     public class PlayerMaster : MonoBehaviour
     {
-
+        //###############
+        //##  MEMBERS  ##
+        //###############
 
         private IMoveable mMovement;
         private IInventory mInventory;
         private AudioSource mAudioSource;
         private bool mMovementBlocked = true;
+
+        //################
+        //##    MONO    ##
+        //################
 
         void Start()
         {
@@ -28,14 +34,6 @@ namespace ItLooksFamiliar.Items
         {
             yield return new WaitForSeconds(4f);
             mMovementBlocked = false;
-        }
-
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            if(mMovementBlocked) return;
-            Vector2 moveVal = context.ReadValue<Vector2>();
-            mMovement.Move(moveVal);
-            //Debug.Log("Recieved movement input " + moveVal);
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -56,6 +54,18 @@ namespace ItLooksFamiliar.Items
                     col.IsCollected = false;
                 }
             }
+        }
+
+        //#############
+        //##  INPUT  ##
+        //#############
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            if(mMovementBlocked) return;
+
+            Vector2 moveVal = context.ReadValue<Vector2>();
+            mMovement.Move(moveVal);
         }
     }
 }
