@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace ItLooksFamiliar.Items
 {
-
     [RequireComponent(typeof(ISoundPlayback))]
     public class NonStackableInventory : MonoBehaviour, IInventory
     {
@@ -59,7 +58,7 @@ namespace ItLooksFamiliar.Items
         }
         public bool AddItem(int slotNo, CollectableSO item)
         {
-            Predicate<int> slotNoEmpty = slotNo =>  mInventory.ContainsKey(slotNo);
+            Predicate<int> slotNoEmpty = sNo =>  mInventory.ContainsKey(sNo);
 
             if (itemNotNull(item) && slotNoEmpty(slotNo)) 
             {
