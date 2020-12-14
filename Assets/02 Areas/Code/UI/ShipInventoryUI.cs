@@ -11,22 +11,37 @@ namespace ItLooksFamiliar.UI
 
     public class ShipInventoryUI : InventoryUI
     {
+        //##################
+        //##    EDITOR    ##
+        //##################
+
         public GameObject PlayerInventory;
 
         [SerializeField]
         private float ShowTooltipTime = 2f;
 
-        private IInventory mPlayerInv;
         [SerializeField]
         private ShipTransition Ship;
-        private ShipTester mTester;
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
+        private IInventory mPlayerInv;
+
+        //################
+        //##    MONO    ##
+        //################
 
         private void Start()
         {
             base.Init();
             mPlayerInv = PlayerInventory.GetComponent<IInventory>();
-            mTester = GetComponent<ShipTester>();
         }
+
+        //#################
+        //##  INTERFACE  ##
+        //#################
 
         public void InvokeShipFunctionTest()
         {
@@ -36,24 +51,41 @@ namespace ItLooksFamiliar.UI
                 mInv.GetItemInSlot(2),
                 mInv.GetItemInSlot(3),
                 mInv.GetItemInSlot(4));
+
             Errors curError = ShipTester.TestShipFunction(curItems);
-            string errorMsg = mTester.GetErrorMessage(curError,curItems);
+            string errorMsg = ShipTester.GetErrorMessage(curError, curItems);
+
             HintSystem.Instance.Show(errorMsg);
-            UIManager.Instance.HideShipHint();
-            if (curError == Errors.NO_ERRORS)
-            {
-                SoundManager.Instance.PlaySound("Success");
-                Ship.StartTransition();
-            }
-            else { SoundManager.Instance.PlaySound("Error"); }
+            UIManager.Instance.ScheduleHidingShipHint();
+            
+            testResultAction(curError);
         }
+
+        private void testResultAction(Errors curError)
+        {
+            switch (curError)
+            {
+                case Errors.NO_ERRORS:
+                    SoundManager.Instance.PlaySound("Success");
+                    Ship.StartTransition();
+                    break;
+                default:
+                    SoundManager.Instance.PlaySound("Error");
+                    break;
+            }
+        }
+
+        //###################
+        //##  I INVENTORY  ##
+        //###################
+
         public override void RemoveItemFromSlot(int slotNo)
         {
             CollectableSO item = mInv.GetItemInSlot(slotNo);
             if (item != null)
             {
                 bool succ = mPlayerInv.AddItem(item);
-                if(succ)
+                if (succ)
                 {
                     mInv.RemoveItem(slotNo);
                     SoundManager.Instance.PlaySound("Uninstall");
@@ -66,10 +98,11 @@ namespace ItLooksFamiliar.UI
             CollectableSO item = mPlayerInv.GetItemInSlot(itemSlotNo);
             CollectableSO curItem = mInv.GetItemInSlot(targetSlotNo);
             mInv.RemoveItem(targetSlotNo);
-            mInv.AddItem(targetSlotNo,item);
+            mInv.AddItem(targetSlotNo, item);
             mPlayerInv.RemoveItem(itemSlotNo);
+
             SoundManager.Instance.PlaySound("Install");
-            if(curItem != null)
+            if (curItem != null)
             {
                 mPlayerInv.AddItem(curItem);
             }

@@ -29,6 +29,7 @@ namespace ItLooksFamiliar.Items
         public CollectableSO OnCollect()
         {
             if (isCollected) return null;
+ 
             isCollected = true;
             return ItemDef;
         }
@@ -47,7 +48,7 @@ namespace ItLooksFamiliar.Items
         //##  ACCESSORS  ##
         //#################
 
-        public bool IsCollected { set { isCollected = value;} get { return isCollected; }}
+        public bool IsCollected { set => isCollected = value; get => isCollected; }
     }
 
 }

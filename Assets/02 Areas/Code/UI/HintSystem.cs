@@ -8,25 +8,46 @@ namespace ItLooksFamiliar.UI
 
     public class HintSystem : MonoBehaviour
     {
-        private static HintSystem mInstance;
-        public static HintSystem Instance { get { return mInstance; } }
+        //##################
+        //##    EDITOR    ##
+        //##################
 
         public StaticTooltip Tooltip;
 
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
+        private static HintSystem sInstance;
+
+        //################
+        //##    MONO    ##
+        //################
+
         private void Awake()
         {
-            mInstance = this;
+            sInstance = this;
         }
+
+        //#################
+        //##  INTERFACE  ##
+        //#################
 
         public void Show(string content, string header = "")
         {
-            mInstance.Tooltip.SetText(content, header);
-            mInstance.Tooltip.gameObject.SetActive(true);
+            sInstance.Tooltip.SetText(content, header);
+            sInstance.Tooltip.gameObject.SetActive(true);
         }
         public void Hide()
         {
-            mInstance.Tooltip.gameObject.SetActive(false);
+            sInstance.Tooltip.gameObject.SetActive(false);
         }
+
+        //#################
+        //##  ACCESSORS  ##
+        //#################
+
+        public static HintSystem Instance => sInstance; 
     }
 
 }

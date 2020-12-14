@@ -3,18 +3,14 @@ using UnityEngine.SceneManagement;
 
 namespace ItLooksFamiliar.Core
 {
-
     public class SceneLoader
     {
         private static SceneLoader sInstance;
-
 
         //#################
         //##  INTERFACE  ##
         //#################
 
-        //todo load next level funciton
-        //todo make this loader handle what level is next?!
         public void LoadLevel(int levelIndex)
         {
             SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
@@ -29,6 +25,14 @@ namespace ItLooksFamiliar.Core
         {
             return SceneManager.GetActiveScene().buildIndex;
         }
+        public void LoadNext()
+        {
+            LoadLevel(GetCurrentLevel() + 1);
+        }
+
+        //#################
+        //##  ACCESSORS  ##
+        //#################
 
         public static SceneLoader Instance
         {
@@ -37,11 +41,6 @@ namespace ItLooksFamiliar.Core
                 if (sInstance == null) sInstance = new SceneLoader();
                 return sInstance;
             }
-        }
-
-        public void LoadNext()
-        {
-            LoadLevel(GetCurrentLevel() + 1);
         }
     }
 }

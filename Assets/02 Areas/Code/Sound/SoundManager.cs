@@ -5,12 +5,23 @@ using System;
 
 namespace ItLooksFamiliar.Sound
 {
-
     public class SoundManager : MonoBehaviour
     {
-        private static SoundManager sInstance;
-        public static SoundManager Instance => sInstance;
+        //##################
+        //##    EDITOR    ##
+        //##################
         public SoundDef[] Sounds;
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
+        private static SoundManager sInstance;
+
+        //################
+        //##    MONO    ##
+        //################
+
         private void Awake()
         {
             sInstance = this;
@@ -25,11 +36,20 @@ namespace ItLooksFamiliar.Sound
             }
         }
 
+        //#################
+        //##  INTERFACE  ##
+        //#################
+
         public void PlaySound(string name)
         {
             SoundDef sound = Array.Find(Sounds, s => s.Name.Equals(name));
             sound.Source.Play();
         }
+
+        //#################
+        //##  ACCESSORS  ##
+        //#################
+        public static SoundManager Instance => sInstance;
     }
 
 }

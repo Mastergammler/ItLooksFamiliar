@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 namespace ItLooksFamiliar.UI
 {
-
     public class InventorySlot : AnimatedGridElement
     {
         //###############
@@ -13,6 +12,15 @@ namespace ItLooksFamiliar.UI
         //###############
 
         protected InventoryUI mParentController;
+
+        //################
+        //##    MONO    ##
+        //################
+
+        void Start()
+        {
+            mParentController = transform.parent.GetComponent<InventoryUI>();
+        }
 
         //#################
         //##  INTERFACE  ##
@@ -26,15 +34,6 @@ namespace ItLooksFamiliar.UI
                 transform.GetComponentInParent<ItemTooltip>().OnPointerExit(eventData);
                 mParentController.RemoveItemFromSlot(ownIndex);
             }
-        }
-
-        //################
-        //##    MONO    ##
-        //################
-
-        void Start()
-        {
-            mParentController = transform.parent.GetComponent<InventoryUI>();
         }
     }
 

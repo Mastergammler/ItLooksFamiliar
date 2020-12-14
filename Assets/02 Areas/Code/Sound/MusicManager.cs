@@ -7,11 +7,19 @@ namespace ItLooksFamiliar.Sound
 
     public class MusicManager : MonoBehaviour
     {
-        private AudioSource mAudioSource;
+        //##################
+        //##    EDITOR    ##
+        //##################
+
         [SerializeField]
         private AudioClip MainMusic;
-        private static MusicManager mInstance;
-        public static MusicManager Instance => mInstance;
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
+        private AudioSource mAudioSource;
+        private static MusicManager sInstance;
 
         //################
         //##    MONO    ##
@@ -19,7 +27,7 @@ namespace ItLooksFamiliar.Sound
 
         void Awake()
         {
-            mInstance = this;
+            sInstance = this;
             DontDestroyOnLoad(this);
             mAudioSource = GetComponent<AudioSource>();
             mAudioSource.clip = MainMusic;
@@ -27,9 +35,9 @@ namespace ItLooksFamiliar.Sound
             //mAudioSource.Play();
         }
 
-        //###############
-        //##  METHODS  ##
-        //###############
+        //#################
+        //##  INTERFACE  ##
+        //#################
 
         public void PauseMusic()
         {
@@ -41,6 +49,12 @@ namespace ItLooksFamiliar.Sound
             if(mAudioSource.isPlaying) return;
             mAudioSource.Play();
         }
+
+        //#################
+        //##  ACCESSORS  ##
+        //#################
+
+        public static MusicManager Instance => sInstance;
 
     }
 

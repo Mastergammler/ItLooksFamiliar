@@ -8,10 +8,23 @@ namespace ItLooksFamiliar.Sound
     [RequireComponent(typeof(AudioSource))]
     public class AnimationSounds : MonoBehaviour
     {
+        //##################
+        //##    EDITOR    ##
+        //##################
+
         [SerializeField]
         private AudioClip[] clips;
 
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
         private AudioSource mAudio;
+
+        //################
+        //##    MONO    ##
+        //################
 
         private void Awake()
         {
@@ -19,6 +32,10 @@ namespace ItLooksFamiliar.Sound
             mAudio.playOnAwake = false;
             mAudio.loop = false;
         }
+
+        //#################
+        //##  INTERFACE  ##
+        //#################
 
         public void PlayRandomSound()
         {

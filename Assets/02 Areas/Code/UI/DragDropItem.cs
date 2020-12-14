@@ -11,19 +11,29 @@ namespace ItLooksFamiliar.UI
     [RequireComponent(typeof(Image))]
     public class DragDropItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        private Image mImage;
-        private RectTransform mTransform;
-        private CanvasGroup mCanvasGroup;
+        //##################
+        //##    EDITOR    ##
+        //##################
 
         [SerializeField]
         private Canvas ParentCanvas;
         [SerializeField]
         private RectTransform ParentPanel;
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
+        private Image mImage;
+        private RectTransform mTransform;
+        private CanvasGroup mCanvasGroup;
         private Vector2 mOriginalPosition;
+        private Func<bool> activeItem => () => mImage.sprite != null;
 
         //################
         //##    MONO    ##
         //################
+
         private void Awake()
         {
             mImage = GetComponent<Image>();
@@ -31,9 +41,11 @@ namespace ItLooksFamiliar.UI
             mCanvasGroup = GetComponent<CanvasGroup>();
             mOriginalPosition = mTransform.anchoredPosition;
         }
-        //#################
-        //##  INTERFACE  ##
-        //#################
+
+        //#####################
+        //##  DRAG HANDLERS  ##
+        //#####################
+
         public void OnBeginDrag(PointerEventData eventData)
         {
             if (!activeItem.Invoke()) return;
@@ -56,8 +68,6 @@ namespace ItLooksFamiliar.UI
             mCanvasGroup.alpha = 1f;
             mTransform.anchoredPosition = mOriginalPosition;
         }
-
-        Func<bool> activeItem => () => mImage.sprite != null;
     }
 
 }

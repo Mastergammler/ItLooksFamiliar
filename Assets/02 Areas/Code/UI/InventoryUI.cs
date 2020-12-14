@@ -8,25 +8,49 @@ using UnityEngine.UI;
 
 namespace ItLooksFamiliar.UI
 {
-
     public class InventoryUI : MonoBehaviour
     {
+        //##################
+        //##    EDITOR    ##
+        //##################
+
         public int InventorySlots = 8;
         public GameObject ItemPrefab;
+        public GameObject InventoryHolder;
+
+        //#################
+        //##  CONSTANTS  ##
+        //#################
+
+        public static readonly Color COL_TRANSPARENT = new Color(0,0,0,0);
+        public static readonly Color COL_WHITE = new Color(1,1,1,1);
+
+        //###############
+        //##  MEMBERS  ##
+        //###############
+
         private Image[] mChildImages;
         private ItemTooltip[] mTooltips;
-
-        //todo: fix direct player access
-        public GameObject InventoryHolder;
         protected IInventory mInv;
+
+        //################
+        //##    MONO    ##
+        //################
+
         void Start()
         {
             Init();
         }
+
+        //###############
+        //##  METHODS  ##
+        //###############
+
         protected void Init()
         {
             mChildImages = new Image[InventorySlots];
             mTooltips = new ItemTooltip[InventorySlots];
+
             for (int i = 0; i < InventorySlots; i++)
             {
                 mChildImages[i] = transform.GetChild(i).GetChild(0).GetComponent<Image>();
@@ -37,16 +61,36 @@ namespace ItLooksFamiliar.UI
             mInv.OnInventoryChanged += UpdateInventoryUI;
         }
 
+        private void UpdateInventoryUI(object sender, InventoryObject e)
+        {
+            if (e.Item == null) setSpriteForSlot(e.SlotNo,null,COL_TRANSPARENT);
+            else                setSpriteForSlot(e.SlotNo,e.Item.Image,COL_WHITE);
+            
+            mTooltips[e.SlotNo].UpdateTooltipMessage(e.Item);
+        }
+
+        private void setSpriteForSlot(int slotNo,Sprite sprite, Color color)
+        {
+            mChildImages[slotNo].sprite = sprite;
+            mChildImages[slotNo].color = color;
+        }
+
+        //###################
+        //##  I INVENTORY  ##
+        //###################
+
         public CollectableSO RemoveItemFrom(int slotNo)
         {
             CollectableSO item = mInv.GetItemInSlot(slotNo);
             mInv.RemoveItem(slotNo);
             return item;
         }
+
         public void AddItem(CollectableSO item, int slotNo)
         {
             if (!mInv.AddItem(slotNo, item)) Debug.LogWarning("Item in slot no " + slotNo + " does already exist!!");
         }
+
         //todo ho to handle the instatiation then? -> it's now a different method for right click
         public virtual void RemoveItemFromSlot(int slotNo)
         {
@@ -61,21 +105,6 @@ namespace ItLooksFamiliar.UI
                 mInv.RemoveItem(slotNo);
                 SoundManager.Instance.PlaySound("ThrowAway");
             }
-        }
-
-        private void UpdateInventoryUI(object sender, InventoryObject e)
-        {
-            if (e.Item == null)
-            {
-                mChildImages[e.SlotNo].sprite = null;
-                mChildImages[e.SlotNo].color = new Color(0, 0, 0, 0);
-            }
-            else
-            {
-                mChildImages[e.SlotNo].sprite = e.Item.Image;
-                mChildImages[e.SlotNo].color = new Color(1, 1, 1, 1);
-            }
-            mTooltips[e.SlotNo].UpdateTooltipMessage(e.Item);
         }
     }
 

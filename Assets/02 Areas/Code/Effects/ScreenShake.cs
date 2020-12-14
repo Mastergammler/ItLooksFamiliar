@@ -22,6 +22,7 @@ namespace ItLooksFamiliar.Effects
         private CinemachineVirtualCamera mCamera;
         private CinemachineBasicMultiChannelPerlin mShakeParams;
         private Coroutine mCurrentRoutine;
+        private delegate Coroutine ExecuteShake();
 
         //################
         //##    MONO    ##
@@ -31,6 +32,7 @@ namespace ItLooksFamiliar.Effects
         {
             mCamera = GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
             if(mCamera == null) Debug.LogError("Cinemachine virtual camera not found, but is required!");
+
             mShakeParams = mCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             if(mShakeParams == null) Debug.LogError("Virtual camera is missing the noise component");
         }
@@ -54,16 +56,15 @@ namespace ItLooksFamiliar.Effects
             executeShake(() => StartCoroutine(shakeAutoDisable(delay)));
         }
 
-        private delegate Coroutine ExecuteShake();
+        //###############
+        //##  METHODS  ##
+        //###############
+
         private void executeShake(ExecuteShake shake)
         {
             if(mCurrentRoutine != null) StopCoroutine(mCurrentRoutine);
             mCurrentRoutine = shake.Invoke();
         }
-
-        //###############
-        //##  METHODS  ##
-        //###############
 
         // Noise params have to be reset, else camera will shake all the time
         private IEnumerator shakeAutoDisable(float delay = 0f)

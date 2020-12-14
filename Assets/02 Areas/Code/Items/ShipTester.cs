@@ -4,31 +4,11 @@ using UnityEngine;
 
 namespace ItLooksFamiliar.Items
 {
-
     public class ShipTester : MonoBehaviour
     {
-        public string CoolingErrorMessage;
-        public string CoreErrorMessage;
-        public string SpaceTimeErrorMessage;
-        public string CircuitErrorMessage;
-        public string AntennaErrorMessage;
-        public string RepairSuccessfullMessage;
-
-        public string GetErrorMessage(Errors errorType)
+        public const string REPAIR_SUCCESSFULL_MSG = "The ship is functioning at full capacity and will jump soon";
+        public static string GetErrorMessage(Errors errorType, RepairItems items) 
         {
-            switch (errorType)
-            {
-                case Errors.COOLING_ERROR: return CoolingErrorMessage;
-                case Errors.ISOLATION_ERROR: return CoreErrorMessage;
-                case Errors.SPACE_TIME_COMP_ERROR: return SpaceTimeErrorMessage;
-                case Errors.CRICUIT_ERROR: return CircuitErrorMessage;
-                case Errors.ANTENNA_ERROR: return AntennaErrorMessage;
-                default: return RepairSuccessfullMessage;
-            }
-        }
-        public string GetErrorMessage(Errors errorType, RepairItems items) 
-        {
-
             switch(errorType)
             {
                 case Errors.COOLING_ERROR: return items.Cooling != null ? items.Cooling.ThermalError : "Item not present";
@@ -37,13 +17,12 @@ namespace ItLooksFamiliar.Items
                 case Errors.CRICUIT_ERROR: return items.Circuit != null ? items.Circuit.ConductivityError:"Item not present";
                 case Errors.ANTENNA_ERROR: return items.Antenna != null ? items.Antenna.VibrationError:"Item not present";
                 case Errors.NO_ITEMS: return "More items required!";
-                default: return RepairSuccessfullMessage;
+                default: return REPAIR_SUCCESSFULL_MSG;
             }
         }
 
         public static Errors TestShipFunction(RepairItems items)
         {
-            //todo fix error, one right item = success
             if (items.Cooling != null && items.Cooling.ThermalConductivity < 8) return Errors.COOLING_ERROR;
             if (items.Core != null && items.Core.IsolationValue < 8) return Errors.ISOLATION_ERROR;
             if (items.SpaceTimeComp != null && items.SpaceTimeComp.PressureResistance < 8) return Errors.SPACE_TIME_COMP_ERROR;
