@@ -63,8 +63,8 @@ namespace ItLooksFamiliar.UI
 
         private void UpdateInventoryUI(object sender, InventoryObject e)
         {
-            if (e.Item == null) setSpriteForSlot(e.SlotNo,null,COL_TRANSPARENT);
-            else                setSpriteForSlot(e.SlotNo,e.Item.Image,COL_WHITE);
+            if (e.Item) setSpriteForSlot(e.SlotNo,e.Item.Image,COL_WHITE);
+            else        setSpriteForSlot(e.SlotNo,null,COL_TRANSPARENT);             
             
             mTooltips[e.SlotNo].UpdateTooltipMessage(e.Item);
         }

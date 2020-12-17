@@ -68,8 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285008620522521216}
   - component: {fileID: 2285008620522521246}
-  - component: {fileID: 2285008620522521247}
-  - component: {fileID: 7586291683328323381}
+  - component: {fileID: 2608294236486876632}
   m_Layer: 0
   m_Name: tall rock_1
   m_TagString: Untagged
@@ -142,33 +141,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2285008620522521247
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2285008620522521217}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018547237, y: 0.05409962}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5907701, y: 0.8000821}
-  m_EdgeRadius: 0
---- !u!114 &7586291683328323381
+--- !u!114 &2608294236486876632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,6 +150,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2285008620522521217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b09465a11bbe8498d0849569c99be4, type: 3}
+  m_Script: {fileID: 11500000, guid: cabe9866550b1294699a7d7991b2c4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
